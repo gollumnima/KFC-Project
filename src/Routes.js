@@ -1,17 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Landing from "./Pages/Landing";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Carousel from 'src/Components/Carousel';
+import Landing from 'src/Pages/Landing';
 
-class Routes extends React.Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const Routes = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/carousel" component={Carousel} />
+    </Switch>
+  </Router>
+);
 
 export default Routes;

@@ -1,0 +1,50 @@
+{
+  "React Functional Component": {
+    "prefix": ["rfc-hooks", "react"],
+    "body": [
+      "import React, {",
+      "  useState, useEffect, useReducer, useCallback,",
+      "} from 'react';",
+      "import { Link } from 'react-router-dom';",
+      "// import { useSelector, useDispatch } from 'react-redux';",
+      "// import { selectUser } from 'src/store/auth';",
+      "// import { api } from 'src/utils/api';",
+      "// import { reducer } from 'src/utils';",
+      "",
+      "const ${MyComp} = props => {",
+      "  const {",
+      "    children,",
+      "  } = props;",
+      "",
+      "//  const dispatch = useDispatch();",
+      "//  const user = useSelector(selectUser);",
+      "",
+      "  useEffect(() => {",
+      "",
+      "  }, []);",
+      "",
+      "  return (",
+      "    <>",
+      "",
+      "    </>",
+      "  );",
+      "};",
+      "",
+      "export default ${MyComp};",
+      ""
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

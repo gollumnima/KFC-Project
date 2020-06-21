@@ -1,0 +1,24 @@
+.imgCard-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3px;
+  .imgCard-upper {
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+  }
+  .imgCard-bottom {
+    width: 150px;
+    border: 1px solid black;
+    border-top: transparent;
+    > p {
+      margin: 0;
+      margin-left: 10px;
+    }
+    p:first-child {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+  }
+}

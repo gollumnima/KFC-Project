@@ -1,0 +1,39 @@
+.carousel-container {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  *::selection {
+    color: #f0dcdd;
+    background-color: #0e4a80;
+  }
+
+  .carousel-title {
+    color: #0f4c81;
+    font-size: 46px;
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  .divider {
+    border-bottom: 1px solid #bdbdbd;
+    margin-bottom: 15px;
+  }
+  .carousel-card-container {
+    display: flex;
+    overflow: hidden;
+  }
+  .swiper-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -174px;
+
+    span {
+      font-size: 100px;
+      font-weight: lighter;
+
+      cursor: pointer;
+    }
+  }
+}

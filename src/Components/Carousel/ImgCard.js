@@ -5,7 +5,7 @@ const ImgCard = props => {
   const {
     color, number, name, year,
   } = props;
-  console.log(props);
+
   return (
     <div className="imgCard-container">
       <div className="imgCard-upper" style={{ backgroundColor: color }} />

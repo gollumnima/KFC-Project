@@ -1,13 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   console.log();
   return (
     <div className="landing-container">
-      <img
-        src="https://cdn.pixabay.com/photo/2016/09/16/19/15/gear-1674891_960_720.png"
-        alt="factory"
-      />
+      <h3>작고 소중한 컴포넌트</h3>
+      <ul>
+        <li>
+          <Link to="/carousel">Carousel</Link>
+        </li>
+        <li>
+          <Link to="/checkbox">CheckBox</Link>
+        </li>
+      </ul>
     </div>
   );
 };

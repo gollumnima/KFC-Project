@@ -15,12 +15,16 @@
 
   &__svg {
     width: 9px;
+    padding-bottom: 2px;
   }
 
   &__input__wrapper {
     input {
       position: fixed;
       left: -5000px;
+    }
+    label {
+      margin-left: 5px;
     }
   }
 }

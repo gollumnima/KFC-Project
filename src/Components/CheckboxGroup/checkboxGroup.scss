@@ -9,8 +9,7 @@
     background-color: #949597;
     border-radius: 50%;
     text-align: center;
-
-    cursor: pointer;
+    margin-right: 5px;
   }
 
   &__svg {
@@ -18,13 +17,17 @@
     padding-bottom: 2px;
   }
 
-  &__input__wrapper {
-    input {
-      position: fixed;
-      left: -5000px;
-    }
-    label {
-      margin-left: 5px;
-    }
+  input {
+    position: fixed;
+    left: -5000px;
   }
+
+  label {
+    display: flex;
+    cursor: pointer;
+  }
+
+  // input:focus + label::before + &__circle {
+  //   border: 3px dashed #777;
+  // }
 }

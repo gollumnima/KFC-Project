@@ -6,7 +6,7 @@
     width: 15px;
     height: 15px;
     padding: 1px 1px;
-    background-color: #949597;
+    background-color: rgba(148, 149, 151, 1);
     border-radius: 50%;
     text-align: center;
     margin-right: 5px;
@@ -22,12 +22,19 @@
     left: -5000px;
   }
 
+  input:focus ~ .checkbox__circle {
+    border: 1px dashed #f5df4e;
+  }
+  input:checked ~ .checkbox__circle {
+    border: none;
+  }
+
+  input:hover ~ .checkbox__circle {
+    background-color: rgba(148, 149, 151, 0.7);
+  }
+
   label {
     display: flex;
     cursor: pointer;
   }
-
-  // input:focus + label::before + &__circle {
-  //   border: 3px dashed #777;
-  // }
 }

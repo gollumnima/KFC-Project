@@ -1,5 +1,17 @@
 const data = [
   {
+    color: '#F5DF4E',
+    number: '13-0647',
+    name: 'Illuminating',
+    year: 2021,
+  },
+  {
+    color: '#949597',
+    number: '17-5104',
+    name: 'Ultimate Gray',
+    year: 2021,
+  },
+  {
     color: '#0E4A80',
     number: '19-4052',
     name: 'Classic Blue',

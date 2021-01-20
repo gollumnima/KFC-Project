@@ -11,7 +11,7 @@ const Landing = () => {
           <Link to="/carousel">Carousel</Link>
         </li>
         <li>
-          <Link to="/checkbox">CheckBox</Link>
+          <Link to="/inputs">Inputs</Link>
         </li>
       </ul>
     </div>

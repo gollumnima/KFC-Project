@@ -1,4 +1,4 @@
-.checkbox {
+.radio {
   &__wrapper {
     display: flex;
   }
@@ -22,19 +22,32 @@
     left: -5000px;
   }
 
-  input:focus ~ .checkbox__circle {
+  input:focus ~ .radio__circle {
     border: 1px dashed #f5df4e;
   }
-  input:checked ~ .checkbox__circle {
+  input:checked ~ .radio__circle {
     border: none;
   }
 
-  input:hover ~ .checkbox__circle {
+  input:hover ~ .radio__circle:not(.disabled) {
     background-color: rgba(148, 149, 151, 0.7);
   }
 
   label {
     display: flex;
     cursor: pointer;
+  }
+
+  &__button {
+    display: flex;
+
+    &__label {
+      border: 1px solid #949597;
+      border-right: none;
+      padding: 10px 10px;
+    }
+  }
+  label:last-of-type {
+    color: hotpink;
   }
 }

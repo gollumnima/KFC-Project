@@ -1,0 +1,40 @@
+.checkbox {
+  &__wrapper {
+    display: flex;
+  }
+  &__circle {
+    width: 15px;
+    height: 15px;
+    padding: 1px 1px;
+    background-color: rgba(148, 149, 151, 1);
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 5px;
+  }
+
+  &__svg {
+    width: 9px;
+    padding-bottom: 2px;
+  }
+
+  input {
+    position: fixed;
+    left: -5000px;
+  }
+
+  input:focus ~ .checkbox__circle {
+    border: 1px dashed #f5df4e;
+  }
+  input:checked ~ .checkbox__circle {
+    border: none;
+  }
+
+  input:hover ~ .checkbox__circle:not(.disabled) {
+    background-color: rgba(148, 149, 151, 0.7);
+  }
+
+  label {
+    display: flex;
+    cursor: pointer;
+  }
+}

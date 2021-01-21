@@ -1,33 +1,37 @@
 import React, { useState } from 'react';
-import './radioGroup.scss';
+import classNames from 'classnames/bind';
+import css from './radioGroup.scss';
 
-const RadioGroup = ({ options, optionType }) => {
+const cn = classNames.bind(css);
+
+const RadioGroup = ({ options, optionType, buttonStyle }) => {
   const [value, setValue] = useState('');
   const handleValue = val => {
     setValue(val);
   };
 
-  console.log(!optionType);
-
   return (
     <div className={`${optionType && 'radio__button'} radio`}>
       {options.map(el => (
-        <div className="radio__wrapper" key={el.value}>
+        <div
+          className={cn(`${optionType && 'radio__button__wrapper'} ${buttonStyle === 'solid' && 'radio__solid'} radio__wrapper `)}
+          key={el.value}
+        >
           <label
-            className={`${optionType && 'radio__button__label'}`}
+            className={cn(`${optionType && 'radio__button__label'} ${buttonStyle === 'solid' && 'radio__button__label__solid'} `)}
             style={el.disabled && { cursor: 'no-drop', color: '#bdbdbd' }}
           >
             <input
               type="radio"
               onChange={() => handleValue(!el.disabled && el.value)}
               checked={value === el.value}
-              value={options.value}
+              value={el.value}
               disabled={el.disabled}
             />
             { !optionType
                 && (
                 <div
-                  className={`${el.disabled && 'disabled'} radio__circle`}
+                  className={cn(`${el.disabled && 'disabled'}`, 'radio__circle')}
                 >
 
                   <svg
@@ -44,7 +48,9 @@ const RadioGroup = ({ options, optionType }) => {
                   </svg>
                 </div>
                 )}
-            {String(el.label)}
+            <span className={cn(`${el.disabled && 'disabled'} ${buttonStyle === 'solid' && 'radio__solid'}`)}>
+              {String(el.label)}
+            </span>
           </label>
         </div>
       ))}

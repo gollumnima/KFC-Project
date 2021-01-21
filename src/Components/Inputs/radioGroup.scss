@@ -42,12 +42,72 @@
     display: flex;
 
     &__label {
-      border: 1px solid #949597;
-      border-right: none;
-      padding: 10px 10px;
+      > input:disabled + span {
+        background-color: rgba(148, 149, 151, 0.2);
+      }
+
+      > input:hover + span:not(.disabled) {
+        color: #f5df4e;
+      }
+
+      > input:checked + span:hover {
+        opacity: 0.9;
+      }
+
+      > input:checked + .radio__solid:hover {
+        opacity: 0.9;
+        color: #949597;
+      }
+
+      > input:checked + span:not(.radio__solid) {
+        -webkit-text-stroke: 1.5px #f5df4e;
+        text-shadow: 1px 1px 0 #949597, -1px 1px 0 #949597, 1px -1px 0 #949597,
+          -1px -1px 0 #949597, 0px 1px 0 #949597, 0px -1px 0 #949597,
+          -1px 0px 0 #949597, 1px 0px 0 #949597, 2px 2px 0 #949597,
+          -2px 2px 0 #949597, 2px -2px 0 #949597, -2px -2px 0 #949597,
+          0px 2px 0 #949597, 0px -2px 0 #949597, -2px 0px 0 #949597,
+          2px 0px 0 #949597, 1px 2px 0 #949597, -1px 2px 0 #949597,
+          1px -2px 0 #949597, -1px -2px 0 #949597, 2px 1px 0 #949597,
+          -2px 1px 0 #949597, 2px -1px 0 #949597, -2px -1px 0 #949597;
+        border: 1px solid #f5df4e;
+      }
+
+      > input:focus + span {
+        outline: 2px solid rgba(245, 223, 78, 0.5);
+      }
+
+      span {
+        border: 1px solid rgba(148, 149, 151, 0.2);
+        border-right: none;
+        padding: 10px 10px;
+      }
+
+      &__solid {
+        > input:checked + .radio__solid {
+          background-color: #f5df4e;
+          border-color: #f5df4e;
+          color: #949597;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &__wrapper:last-child > label > span {
+      border-right: 1px solid rgba(148, 149, 151, 0.2);
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &__wrapper:first-child > label > span {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
     }
   }
-  label:last-of-type {
-    color: hotpink;
+
+  &__solid {
+    // > input:checked + .radio__solid {
+    //   background-color: #f5df4e;
+    //   border-color: #f5df4e;
+    // }
   }
 }

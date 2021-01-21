@@ -18,7 +18,16 @@ const InputsTest = () => (
         options={options}
       />
       <h2>Radio Group</h2>
+      <h4>Original Radio</h4>
+      <RadioGroup options={options} />
+      <h4>Radio Group - option type is button</h4>
       <RadioGroup options={options} optionType="button" />
+      <h4>Radio Group - option type is button</h4>
+      <RadioGroup
+        options={options}
+        optionType="button"
+        buttonStyle="solid"
+      />
 
     </div>
   </div>

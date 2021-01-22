@@ -1,0 +1,36 @@
+.carousel {
+  display: flex;
+
+  &__wrapper {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  button {
+    display: block;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'system-ui';
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  &__left:before {
+    content: '←';
+  }
+
+  &__left {
+    left: -25px;
+  }
+
+  &__right {
+    right: -25px;
+  }
+
+  &__right:before {
+    content: '→';
+  }
+}

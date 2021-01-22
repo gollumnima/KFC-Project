@@ -3,31 +3,48 @@ import ImgCard from './ImgCard';
 import data from './data';
 import './index.scss';
 
-const Carousel = () => {
+const Carousel = props => {
   const [startIdx, setStartIdx] = useState(0);
   const [addedIdx, setAddedIdx] = useState(7);
   const [losedIdx, setLosedIdx] = useState(startIdx);
-  console.log(startIdx, 'ind');
-  console.log(data.length);
-  const onClickLeft = () => {
-    if (startIdx === data.length - 1) {
-      setStartIdx(addedIdx);
-    } else if (data.length - startIdx < 8) {
-      setLosedIdx(data.length - 1 - startIdx - 7);
-    } else {
-      setStartIdx(startIdx - 7);
-    }
+
+  const [current, setCurrent] = useState(0);
+  const [next, setNext] = useState(null);
+
+  const isCurrent = content => {
+    const right = next === null ? current : next;
+    return content && content.key === right;
   };
 
-  const onClickRight = () => {
-    if (startIdx === data.length - 1) {
-      setStartIdx(0);
-    } else if (data.length - startIdx < 8) {
-      setAddedIdx(data.length - 1 - startIdx + 7);
-    } else {
-      setStartIdx(startIdx + 7);
-    }
+  const switchNext = key => {
+    const next = key || setCurrent(current + 1) % props.slides.length;
   };
+
+  const findeSlide = (slides, key, render) => {
+    const slide = slides.filter(slide => slide.key === key)[0];
+    if (!slide) return <></>;
+    return render(slide);
+  };
+
+  // const onClickLeft = () => {
+  //   if (startIdx === data.length - 1) {
+  //     setStartIdx(addedIdx);
+  //   } else if (data.length - startIdx < 8) {
+  //     setLosedIdx(data.length - 1 - startIdx - 7);
+  //   } else {
+  //     setStartIdx(startIdx - 7);
+  //   }
+  // };
+
+  // const onClickRight = () => {
+  //   if (startIdx === data.length - 1) {
+  //     setStartIdx(0);
+  //   } else if (data.length - startIdx < 8) {
+  //     setAddedIdx(data.length - 1 - startIdx + 7);
+  //   } else {
+  //     setStartIdx(startIdx + 7);
+  //   }
+  // };
 
   const startingPoint = data.slice(startIdx);
   return (
@@ -47,8 +64,8 @@ const Carousel = () => {
 }
           </div>
           <div className="swiper-container">
-            <span onClick={() => onClickLeft()}>{'<'}</span>
-            <span onClick={() => onClickRight()}>{'>'}</span>
+            <span>{'<'}</span>
+            <span>{'>'}</span>
           </div>
         </div>
       </div>

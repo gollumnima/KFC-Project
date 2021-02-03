@@ -12,14 +12,21 @@ const Carousel = props => {
   const [current, setCurrent] = useState(0);
   const [currentSlide, setCurrentSlide] = useState([]);
 
+  console.log(currentSlide, '슬라이든');
   useEffect(() => {
-    setCurrentSlide(data.slice(current, current + slidesToShow));
+    if (current < 0) {
+      setCurrentSlide(0, slidesToShow);
+    } else {
+      setCurrentSlide(data.slice(current, current + slidesToShow));
+    }
   }, [data, current, slidesToShow]);
 
   const handleClick = e => {
     const { className } = e.target;
     if (current < 0) {
       setCurrent(0);
+      console.log(current, '현재ㄴㄱ');
+      return current;
     }
     if (current >= data.length) {
       setCurrent(data.length - slidesToShow);
@@ -42,16 +49,18 @@ const Carousel = props => {
   const handleAutoPlay = () => {
     const nextIdx = (current + slidesToShow) % data.length;
 
-    setTimeout(() => {
+    const setAutoPlay = setTimeout(() => {
       setCurrent(nextIdx);
       setCurrentSlide(data.slice(current, current + slidesToScroll));
     }, speed);
+
+    return () => {
+      clearTimeout(setAutoPlay);
+    };
   };
 
-  console.log(current, 'current');
   useEffect(() => {
-    autoPlaySpeed && setInterval(
-
+    autoPlaySpeed && setTimeout(
       () => handleAutoPlay(),
 
       //   setCurrent(end);
@@ -60,8 +69,11 @@ const Carousel = props => {
       //   } else {
       //     setCurrentSlide(data.slice(start, end));
       //   }
-      300000000,
+      3000,
     );
+    return () => {
+      clearTimeout(handleAutoPlay);
+    };
   }, [current]);
 
   return (

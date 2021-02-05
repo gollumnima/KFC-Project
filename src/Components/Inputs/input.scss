@@ -1,0 +1,23 @@
+@import '../../styles/colorPalette.scss';
+
+.input {
+  &__wrapper {
+    display: inline-block;
+    position: relative;
+
+    svg {
+      position: absolute;
+      width: 21px;
+      top: 6px;
+      right: 6px;
+      cursor: pointer;
+    }
+  }
+
+  &__item {
+    all: unset;
+    padding: 7px 9px;
+    border: 1px solid $lightGray;
+    border-radius: 4px;
+  }
+}

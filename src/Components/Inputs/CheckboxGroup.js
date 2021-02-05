@@ -8,7 +8,6 @@ const CheckboxGroup = props => {
 
   const handleValue = value => {
     const unselected = [];
-
     if (!(values.includes(value))) {
       setValues(values.concat(value));
     } else if (values.includes(value)) {

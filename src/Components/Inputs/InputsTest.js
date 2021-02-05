@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckboxGroup from './CheckboxGroup';
 import RadioGroup from './RadioGroup';
+import Input from './Input';
 
 const options = [
   { value: 123, label: '숫자 123' },
@@ -28,6 +29,11 @@ const InputsTest = () => (
         optionType="button"
         buttonStyle="solid"
       />
+      <h2>Input</h2>
+      <h4>Input number</h4>
+      <Input type="number" />
+      <h4>Input password</h4>
+      <Input type="password" />
 
     </div>
   </div>

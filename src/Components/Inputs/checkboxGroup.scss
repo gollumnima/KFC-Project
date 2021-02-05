@@ -1,3 +1,5 @@
+@import '../../styles/colorPalette.scss';
+
 .checkbox {
   &__wrapper {
     display: flex;
@@ -6,7 +8,7 @@
     width: 15px;
     height: 15px;
     padding: 1px 1px;
-    background-color: rgba(148, 149, 151, 1);
+    background-color: $gray2021;
     border-radius: 50%;
     text-align: center;
     margin-right: 5px;
@@ -23,14 +25,14 @@
   }
 
   input:focus ~ .checkbox__circle {
-    border: 1px dashed #f5df4e;
+    border: 1px dashed $yellow2021;
   }
   input:checked ~ .checkbox__circle {
     border: none;
   }
 
   input:hover ~ .checkbox__circle:not(.disabled) {
-    background-color: rgba(148, 149, 151, 0.7);
+    background-color: $lightGray;
   }
 
   label {

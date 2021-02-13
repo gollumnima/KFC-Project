@@ -10,7 +10,6 @@ const Routes = () => (
       <Route exact path="/" component={Landing} />
       <Route path="/carousel" component={CarouselTest} />
       <Route path="/inputs" component={InputsTest} />
-
     </Switch>
   </Router>
 );

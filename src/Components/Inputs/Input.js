@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './input.scss';
 
 const Input = ({ type }) => {
   const [closeEye, setCloseEye] = useState(false);
   const [number, setNumber] = useState('');
+  const addComma = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const removeNonNumeric = num => num.toString().replace(/\D/g, '');
+  const removeComma = num => num.toString().replace(/[, ]+/g, '').trim();
 
   const handleNumber = e => {
     const { value } = e.target;
-    const converted = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    setNumber(converted);
+    setNumber(addComma(removeNonNumeric(value)));
   };
 
-  console.log(number);
   const handleArrowKey = e => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
       setNumber('');
     }
     if (e.key === 'ArrowUp') {
-      setNumber(Number(number) + 1);
+      setNumber(addComma(+removeComma(number) + 1));
     }
     if (e.key === 'ArrowDown') {
-      setNumber(Number(number) - 1);
+      setNumber(addComma(+removeComma(number) - 1));
     }
   };
 

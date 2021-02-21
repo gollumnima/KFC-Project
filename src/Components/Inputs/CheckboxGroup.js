@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import './checkboxGroup.scss';
 
 const CheckboxGroup = props => {
-  const { options } = props;
-  const [values, setValues] = useState([]);
+  const { options, onChange, value: passedValues } = props;
+  // const [values, setValues] = useState([]);
   const allValues = options.filter(el => !el.disabled).map(el => el.value);
 
   const handleValue = value => {
+    console.log({ value });
     const unselected = [];
-    if (!(values.includes(value))) {
-      setValues(values.concat(value));
-    } else if (values.includes(value)) {
+    if (!(passedValues.includes(value))) {
+      onChange(passedValues.concat(value));
+    } else if (passedValues.includes(value)) {
       unselected.push(value);
-      setValues(values.filter(el => !unselected.includes(el)));
+      onChange(passedValues.filter(el => !unselected.includes(el)));
     }
   };
 
   const handleAllValues = () => {
     const areEqual = (a, b) => a.length === b.length && a.every((item, i) => b[i] === item);
-    return !areEqual(allValues, values) ? setValues(allValues) : setValues([]);
+    return !areEqual(allValues, passedValues) ? onChange(allValues) : onChange([]);
   };
 
   return (
@@ -34,7 +35,7 @@ const CheckboxGroup = props => {
           <div
             className="checkbox__circle"
           >
-            {values.length === allValues.length
+            {passedValues.length === allValues.length
               ? (
                 <svg
                   className="checkbox__svg"
@@ -66,7 +67,7 @@ const CheckboxGroup = props => {
         </label>
       </div>
       {options.map(el => {
-        const isSelected = values.filter(value => value === el.value).length || 0;
+        const isSelected = passedValues.filter(value => value === el.value).length || 0;
 
         return (
           <div key={el.value}>
@@ -77,9 +78,10 @@ const CheckboxGroup = props => {
                 <label style={el.disabled && { cursor: 'no-drop', color: '#bdbdbd' }}>
                   <input
                     type="checkbox"
-                    onChange={() => handleValue(el.value)} // 현재 상황에 따라 select쓸지 unselect쓸지 정하게 하기
+                    // onChange={() => handleValue(el.value)} // 현재 상황에 따라 select쓸지 unselect쓸지 정하게 하기
+                    onChange={() => handleValue(el.value)}
                     checked={isSelected}
-                    value={el.value}
+                    // value={el.value}
                     disabled={el.disabled}
                   />
                   <div

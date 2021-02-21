@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './input.scss';
 
 const Input = ({ type }) => {
   const [closeEye, setCloseEye] = useState(false);
-  const [number, setNumber] = useState('');
+  const [number, setNumber] = useState(0);
   const addComma = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const removeNonNumeric = num => num.toString().replace(/\D/g, '');
   const removeComma = num => num.toString().replace(/[, ]+/g, '').trim();
+
+  /// ///////// onChange props로 넘겨줘야 하는데!!! 나중에 수정
 
   const handleNumber = e => {
     const { value } = e.target;
